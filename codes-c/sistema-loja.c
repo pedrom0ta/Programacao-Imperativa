@@ -18,18 +18,18 @@ int main(){
 	struct Sistema vendas[50];
 	int contador = 0;
 	int continuar, i, continuar2;
-	int codigodoproduto, pagamento, cedula, cartao, novacompra;
-	float troco;
+	int codigodoproduto, pagamento, cartao, novacompra;
+	float troco, cedula;
 	
 	printf("=-=-=-= Sistema de Vendas =-=-=-=\n\n");
 	do{
 		printf("Digite o nome do produto: ");
 		scanf("%s", vendas[contador].nome);
 		
-		printf("Digite o c√≥digo do produto: ");
+		printf("Digite o cÛdigo do produto: ");
 		scanf("%d", &vendas[contador].codigo);
 		
-		printf("Digite o pre√ßo do produto: ");
+		printf("Digite o preÁo do produto: ");
 		scanf("%f", &vendas[contador].preco);
 		
 		printf("Digite o estoque do produto: ");
@@ -37,7 +37,7 @@ int main(){
 		
 		contador++;
 		
-		printf("\nDeseja cadastrar mais algum produto?: [1]Sim ou [2]N√£o.\n");
+		printf("\nDeseja cadastrar mais algum produto?: [1]Sim ou [2]N„o.\n");
         scanf("%d", &continuar);
 		
 	}while (continuar == 1);
@@ -45,49 +45,49 @@ int main(){
 	printf("=-=-=-= Lista de produtos =-=-=-=\n\n");
 	for (i = 0; i < contador; i++){
 		printf("Nome do produto: %s.\n", vendas[i].nome);
-		printf("C√≥digo do produto: %d.\n", vendas[i].codigo);
-		printf("Pre√ßo do produto: %.2f reais.\n", vendas[i].preco);
+		printf("CÛdigo do produto: %d.\n", vendas[i].codigo);
+		printf("PreÁo do produto: %.2f reais.\n", vendas[i].preco);
 		printf("Estoque do produto: %d.\n", vendas[i].estoque);
 		printf("\n");
 	}
 	
-	printf("Deseja comprar algum produto?: [1]Sim ou [2]N√£o.\n")/
+	printf("Deseja comprar algum produto?: [1]Sim ou [2]N„o.\n")/
 	scanf("%d", &continuar2);
 	
 	switch(continuar2){
 		case 1:
 			do{ 
-			printf("Digite o c√≥digo do produto que deseja comprar: ");
+			printf("Digite o cÛdigo do produto que deseja comprar: ");
 			scanf("%d", &codigodoproduto);
 			
 
 			for (i = 0; i < contador; i++){
 				if (codigodoproduto == vendas[i].codigo){
 					printf("Produto selecionado: %s.\n", vendas[i].nome);
-					printf("Como deseja pagar?: [1]C√©dula ou [2]Cart√£o\n");
+					printf("Como deseja pagar?: [1]CÈdula ou [2]Cart„o\n");
 					scanf("%d", &pagamento);
 					
 					if (pagamento == 1){
-						printf("Quanto reais ir√° inserir?: ");
-						scanf("%d", &cedula);
+						printf("Quanto reais ir· inserir?: ");
+						scanf("%f", &cedula);
 					
 						if (cedula == vendas[i].preco){
 							printf("Pagamento realizado!\n\n");
 						}
 						if (cedula > vendas[i].preco){
 							troco = (cedula - vendas[i].preco);
-							printf("Pagamento realizado! Seu troco √© de %.2f reais.\n\n", troco);
+							printf("Pagamento realizado! Seu troco È de %.2f reais.\n\n", troco);
 						}
 						else{
-							printf("O valor inserido √© menor que o pre√ßo do produto.\n\n");
+							printf("O valor inserido È menor que o preÁo do produto.\n\n");
 						}
 					}
 					if (pagamento == 2){
-						printf("Deseja pagar por [1]Cr√©dito ou [2]D√©bito?\n");
+						printf("Deseja pagar por [1]CrÈdito ou [2]DÈbito?\n");
 						scanf("%d", &cartao);
 						
 						if(cartao == 1){
-							printf("Pagamento realizado! A compra ser√° mostrada na sua fatura.\n\n");
+							printf("Pagamento realizado! A compra ser· mostrada na sua fatura.\n\n");
 							
 						}
 						if(cartao == 2){
@@ -97,10 +97,10 @@ int main(){
 					}
 				}	
 				else{
-					printf("Produto n√£o est√° cadastrado!\n\n");
+					printf("Produto n„o est· cadastrado!\n\n");
 					}	
 				}
-			printf("Deseja comprar outro produto? [1]Sim ou [2]N√£o: ");
+			printf("Deseja comprar outro produto? [1]Sim ou [2]N„o: ");
 			scanf("%d", &novacompra);
 			printf("\n");
 			}while (novacompra == 1);
